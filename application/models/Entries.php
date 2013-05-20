@@ -41,7 +41,7 @@ class Entries extends Eloquent {
       $entry = new Entries();
       $entry->title = $arguments['title'];
       $entry->body = $arguments['body'];
-      $entry->users_id = Auth::user()->id;
+      $entry->user_id = Auth::user()->id;
       if($entry->save()){
           return $entry->id;
       } else {
