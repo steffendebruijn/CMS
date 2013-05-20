@@ -14,7 +14,7 @@ return array(
 	|
 	*/
 
-	'profile' => true,
+	'profile' => false,
 
 	/*
 	|--------------------------------------------------------------------------
@@ -69,17 +69,17 @@ return array(
 
 		'mysql' => array(
 			'driver'   => 'mysql',
-			'host'     => 'localhost',
-			'database' => 'database',
+			'host'     => '127.0.0.1',
+			'database' => 'weblog',
 			'username' => 'root',
-			'password' => '',
+			'password' => 'Welkom#1',
 			'charset'  => 'utf8',
 			'prefix'   => '',
 		),
 
 		'pgsql' => array(
 			'driver'   => 'pgsql',
-			'host'     => 'localhost',
+			'host'     => '127.0.0.1',
 			'database' => 'database',
 			'username' => 'root',
 			'password' => '',
@@ -90,7 +90,7 @@ return array(
 
 		'sqlsrv' => array(
 			'driver'   => 'sqlsrv',
-			'host'     => 'localhost',
+			'host'     => '127.0.0.1',
 			'database' => 'database',
 			'username' => 'root',
 			'password' => '',
