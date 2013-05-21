@@ -6,8 +6,8 @@
     </div>
     <div class="modal-body">
 
-        <p>{{ Form::open('article/'.$entry_id.'/comment/'.$comment_id, 'POST') }}
-            {{ Form::textarea('body', NULL, array('class'=>'input-xxlarge'))}}<br />
+        <p>{{ Form::open('article/'.$entry_id.'/comment/add', 'POST') }}
+            {{ Form::textarea('comment', NULL, array('class'=>'input-xxlarge'))}}<br />
         </p>
     </div>
     <div class="modal-footer">

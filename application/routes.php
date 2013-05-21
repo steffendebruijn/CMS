@@ -42,17 +42,13 @@ Route::get('article/edit/(:num)', 'article@edit');
 Route::post('article/edit/(:num)', 'article@edit');
 Route::post('article/delete', 'article@delete');
 Route::get('logout', 'login@logout');
-
-Route::get('article/(:num)/comment/(:num?)', function($entry_id, $comment_id)
-        {
-            if (Request::ajax())
-            {
-                return View::make('addcomment')
-                                ->with('comment_id', $comment_id)
-                                ->with('entry_id', $entry_id);
+Route::post('article/(:num)/comment/add', 'comments@addcomment');
+Route::get('article/(:num)/comment/add', function($entry_id) {
+            if (Request::ajax()) {
+                return View::make('addcomment')->with('entry_id', $entry_id);
             }
         });
-Route::post('article/(:num)/comment/(:num?)', 'article@addcomment');
+
 //Route::controller(Controller::detect());
 
 /*
@@ -70,13 +66,11 @@ Route::post('article/(:num)/comment/(:num?)', 'article@addcomment');
   |
  */
 
-Event::listen('404', function()
-        {
+Event::listen('404', function() {
             return Response::error('404');
         });
 
-Event::listen('500', function()
-        {
+Event::listen('500', function() {
             return Response::error('500');
         });
 
@@ -108,32 +102,26 @@ Event::listen('500', function()
   |
  */
 
-Route::filter('before', function()
-        {
+Route::filter('before', function() {
             // Do stuff before every request to your application...
         });
 
-Route::filter('after', function($response)
-        {
+Route::filter('after', function($response) {
             // Do stuff after every request to your application...
         });
 
-Route::filter('csrf', function()
-        {
+Route::filter('csrf', function() {
             if (Request::forged())
                 return Response::error('500');
         });
 
-Route::filter('auth', function()
-        {
+Route::filter('auth', function() {
             if (Auth::guest())
                 return Redirect::to('login');
         });
 
-Route::filter('loggedin', function()
-        {
-            if (Auth::check())
-            {
+Route::filter('loggedin', function() {
+            if (Auth::check()) {
                 return Redirect::to('home');
             }
         });

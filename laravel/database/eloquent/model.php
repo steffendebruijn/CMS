@@ -677,6 +677,7 @@ abstract class Model {
 		// set the value of the relationship in the relationship array.
 		elseif (method_exists($this, $key))
 		{
+                    if(is_object($this->$key()))
 			return $this->relationships[$key] = $this->$key()->results();
 		}
 

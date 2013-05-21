@@ -22,7 +22,7 @@
             <div class="span5 offset0 comment">
                 <div class="comment-data">{{$comment->comment}}</div>
                 <div class="posted-by">
-                    Posted by: {{$comment->username}} on {{date("F j Y, G:i:s", $comment->timestamp)}} | {{HTML::link('article/'.$entry[0]->entryid.'/comment/'.$comment->id, 'Comment here!', array('class'=>'ajax-link'))}}
+                    Posted by: {{$comment->username}} on {{$comment->created_at}}
                 </div>
             </div>
         </div>
@@ -30,6 +30,8 @@
         @else
         Nog geen comments
         @endif
+        <br />
+        {{HTML::link('article/'.$entry[0]->entryid.'/comment/add', 'Comment here!', array('class'=>'ajax-link'))}}
     </div>
 </div>
 </div>
