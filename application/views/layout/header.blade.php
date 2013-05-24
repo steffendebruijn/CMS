@@ -11,11 +11,16 @@
             <a class="brand" href="{{URL::to('home');}}">cms blog</a>
             <div class="nav-collapse collapse">
                 <ul class="nav">
-                    <li class="active"><a href="{{URL::to('home');}}">Home</a></li></ul><ul class="nav pull-right">
-                    
+                    <li class=""><a href="{{URL::to('home');}}">Home</a></li>
+                    @if(Auth::check())
+                    <li class=""><a href="{{URL::to('article/new');}}">New entry</a></li>
+                    @endif
+                </ul><ul class="nav pull-right">
                     <li class="pull-right" style="color: #08c;">
                         @if(Auth::check())
-                            {{ HTML::link('logout', 'Logout', array('style' => 'color: #005480;')) }}
+                        {{ HTML::link('logout', 'Logout', array('style' => 'color: #005480;')) }}
+                        @else
+                        {{ HTML::link('login', 'Login', array('style' => 'color: #005480;')) }}
                         @endif
                     </li>
                 </ul>
@@ -24,13 +29,14 @@
     </div>
 </div>
 <div class="container">
-<!-- alert message handling -->
-@if(!is_null(Session::get('alert-success')))
-<div class="alert alert-success">
-    {{ Session::get('alert-success') }}
-</div>
-@elseif(!is_null(Session::get('alert-error')))
-<div class="alert alert-error">
-    {{ Session::get('alert-error') }}
-</div>
-@endif
+    <div class='content'>
+    <!-- alert message handling -->
+    @if(!is_null(Session::get('alert-success')))
+    <div class="alert alert-success">
+        {{ Session::get('alert-success') }}
+    </div>
+    @elseif(!is_null(Session::get('alert-error')))
+    <div class="alert alert-error">
+        {{ Session::get('alert-error') }}
+    </div>
+    @endif
