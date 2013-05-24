@@ -13,6 +13,7 @@ class Home_Controller extends Base_Controller
     public function get_index()
     {
         $entries = Entries::get_entries();
+        $commentCount = array();
         foreach ($entries as $entry) {
             $commentCount[$entry->entryid] = Comments::countComments($entry->entryid);
         }
