@@ -12,7 +12,8 @@
             <div class="nav-collapse collapse">
                 <ul class="nav">
                     <li class=""><a href="{{URL::to('home');}}">Home</a></li>
-                    @if(Auth::check())
+                    @if(Auth::check() && Auth::user()->has_admin_rights)
+                   
                     <li class=""><a href="{{URL::to('article/new');}}">New entry</a></li>
                     @endif
                 </ul><ul class="nav pull-right">
