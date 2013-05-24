@@ -18,9 +18,9 @@
                 </ul><ul class="nav pull-right">
                     <li class="pull-right" style="color: #08c;">
                         @if(Auth::check())
-                        {{ HTML::link('logout', 'Logout', array('style' => 'color: #005480;')) }}
+                        {{ HTML::link('logout', 'Logout', array('style' => 'color: gray;')) }}
                         @else
-                        {{ HTML::link('login', 'Login', array('style' => 'color: #005480;')) }}
+                        {{ HTML::link('login', 'Login', array('style' => 'color: gray;')) }}
                         @endif
                     </li>
                 </ul>

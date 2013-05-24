@@ -38,5 +38,10 @@ class Comments extends Eloquent
         return true;
         
     }
+    
+    public static function countComments($entry_id){
+        return Comments::join('comment_to_blog','comments.id','=', 'comment_to_blog.blog_id')
+                ->where('comment_to_blog.blog_id', '=', $entry_id)->count();
+    }
 }
 ?>
